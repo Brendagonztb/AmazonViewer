@@ -10,13 +10,13 @@ public class AmazonViewer
     public static void main(String[] args) 
     {
        Movie movie = new Movie ("Coco", "Animation",(short)2017);  
-       movie.showData();
+       movie.showDate();
        Serie serie = new Serie("La Casa de Papel", "Drama" , 120);
   
     // TODO code application logic here 
         //showMenu();
        
-        
+        System.out.println("Esta es una prueba ");
     }
     public static void showMenu()
     {
