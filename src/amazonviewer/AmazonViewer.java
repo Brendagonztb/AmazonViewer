@@ -1,22 +1,20 @@
 package amazonviewer;
 
-import java.util.Date;
+import java.util.*;
 
 import amazonviewer.Movie;
 
 public class AmazonViewer
 {
     
+   
+    
     public static void main(String[] args) 
-    {
+    {// TODO code application logic here 
        Movie movie = new Movie ("Coco", "Animation",(short)2017);  
-       movie.showDate();
-       Serie serie = new Serie("La Casa de Papel", "Drama" , 120);
+       movie.showData();
   
-    // TODO code application logic here 
         //showMenu();
-       
-        System.out.println("Esta es una prueba ");
     }
     public static void showMenu()
     {

@@ -1,24 +1,20 @@
 package amazonviewer;
 
-public class Serie 
+public class Serie extends Film
 {
     private int id;
-    private String title;
-    private String genre;
-    private String creator;
-    private int duration;
-    private short year;
-    private boolean viewed;
-    private int timeViewed;
-    
-    
-    public Serie(String title, String genre, int duration)
+    private int sessionQuantity;
+    private Chapter[] chapter;
+
+    public Serie(String title, String genre, String creator, int duration, int sessionQuantity)
     {
-        this.title = title;
-        this.genre = genre;
-        this.duration = duration;
+        super(title, genre, creator, duration);
+        this.sessionQuantity = sessionQuantity;
     }
-    int sessionQuantity;
-    //chapters []
     
+    public int getId() 
+    {
+        return id;
+    }
+
 }
