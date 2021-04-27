@@ -6,14 +6,12 @@ import amazonviewer.Movie;
 
 public class AmazonViewer
 {
-    
-   
-    
     public static void main(String[] args) 
     {// TODO code application logic here 
-       Movie movie = new Movie ("Coco", "Animation",(short)2017);  
-       movie.showData();
-  
+       //Movie movie = new Movie ("Coco", "Animation",(short)2017);  
+      // movie.showData();
+  Movie movie = new Movie("Coco", "Animation", "", 120, (short)2017);
+        System.out.println(movie);
         //showMenu();
     }
     public static void showMenu()

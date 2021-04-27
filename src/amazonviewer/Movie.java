@@ -28,6 +28,13 @@ public class Movie extends Film
     {
         this.timeViewed = timeViewed;
     }
+       @Override
+    public String toString() {
+    return " Title : " + getTitle() +
+            " \n Genre : " + getGenre() +
+            "\n Year : " + getYear()+
+            "\n Creator : " + getDuration(); //To change body of generated methods, choose Tools | Templates.
+    }
 }
 
 
