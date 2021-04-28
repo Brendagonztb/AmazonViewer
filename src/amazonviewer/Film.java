@@ -2,6 +2,7 @@ package amazonviewer;
 
 public class Film 
 {
+    
     private String title;
     private String genre;
     private String creator;

@@ -1,6 +1,8 @@
 package amazonviewer;
 
-public class Movie extends Film
+import java.util.Date;
+
+public class Movie extends Film implements IVisualizable
 {
     private int id;
     private int timeViewed;
@@ -30,11 +32,28 @@ public class Movie extends Film
     }
        @Override
     public String toString() {
-    return " Title : " + getTitle() +
-            " \n Genre : " + getGenre() +
+    return  " MOVIE " +
+            "\n Title : " + getTitle() +
+            "\n Genre : " + getGenre() +
             "\n Year : " + getYear()+
-            "\n Creator : " + getDuration(); //To change body of generated methods, choose Tools | Templates.
+            "\n Creator : " + getCreator(); //To change body of generated methods, choose Tools | Templates.
     }
-}
+
+    @Override
+    public Date startToSee(Date dateI) {
+        return dateI; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void stopToSee(Date dateI, Date dateF) {
+         if(dateF.getSeconds() > dateI.getSeconds()){
+               setTimeViewed(dateF.getSeconds() - dateI.getSeconds());
+         }else{
+                setTimeViewed(0);
+                }
+    
+        }
+    }
+
 
 

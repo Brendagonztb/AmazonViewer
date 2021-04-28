@@ -35,7 +35,12 @@ public class Serie extends Film
 
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return " SERIE " +
+                "\n Title : " + getTitle()+
+                "\n Genre : " + getGenre()+
+                "\n Year : " + getYear() +
+                "\n Creator : " + getCreator()+
+                "\n Duration : " +  getDuration(); //To change body of generated methods, choose Tools | Templates.
     }
     
 

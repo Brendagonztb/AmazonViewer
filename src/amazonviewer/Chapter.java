@@ -1,6 +1,6 @@
 package amazonviewer;
 
-public class Chapter extends Movie 
+public class Chapter extends Movie
 {
     private int id;
     private int sessionNumber;
@@ -26,7 +26,11 @@ public class Chapter extends Movie
 
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return " CHAPTER " +
+                "\n Title : " + getTitle() +
+                "\n Duration : " + getDuration() +
+                "\n Year : " + getYear() +
+                "\n Creator : " + getCreator() ; //To change body of generated methods, choose Tools | Templates.
     }
     
 }

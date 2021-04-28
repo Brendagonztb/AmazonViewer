@@ -4,17 +4,19 @@ import java.util.Date;
 
 public class Publication 
 {
+    
     private String title;
     private Date editionDate;
     private String editorial;
     private String authors;
 
-    public Publication(String title, Date editionDate, String editorial, String authors) {
+    public Publication(String title, Date editionDate, String editorial) {
         this.title = title;
         this.editionDate = editionDate;
         this.editorial = editorial;
-        this.authors = authors;
     }
+
+
 
     public String getTitle() {
         return title;
