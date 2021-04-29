@@ -1,5 +1,6 @@
 package amazonviewer;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Movie extends Film implements IVisualizable
@@ -36,7 +37,8 @@ public class Movie extends Film implements IVisualizable
             "\n Title : " + getTitle() +
             "\n Genre : " + getGenre() +
             "\n Year : " + getYear()+
-            "\n Creator : " + getCreator(); //To change body of generated methods, choose Tools | Templates.
+            "\n Creator : " + getCreator()+ 
+            "\n Duration : " + getDuration();//To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -46,14 +48,22 @@ public class Movie extends Film implements IVisualizable
 
     @Override
     public void stopToSee(Date dateI, Date dateF) {
-         if(dateF.getSeconds() > dateI.getSeconds()){
-               setTimeViewed(dateF.getSeconds() - dateI.getSeconds());
+         if(dateF.getTime()> dateI.getTime()){
+               setTimeViewed((int)(dateF.getTime() - dateI.getTime()));
          }else{
                 setTimeViewed(0);
                 }
-    
         }
+    
+    public static ArrayList<Movie> makeMoviesList(){
+        ArrayList<Movie> movies = new ArrayList();
+        for (int i = 1; i <= 5; i++) {
+            movies.add(new Movie("movie "+ i, "genero "+ i , "creador "+i , 120 +i ,(short) (2017 + i)));
+        }
+        return movies;
+        
     }
+}
 
 
 

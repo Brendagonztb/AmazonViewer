@@ -1,5 +1,6 @@
 package amazonviewer;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Book extends Publication implements IVisualizable
@@ -25,8 +26,15 @@ public class Book extends Publication implements IVisualizable
         this.isbn = isbn;
     }
 
-    public boolean isReaded() {
-        return readed;
+    public String isReaded() {
+        String leido = "";
+        if (readed == true)
+        {
+            leido = "Si";
+        }else{
+            leido = "No";
+        }
+        return leido;
     }
 
     public void setReaded(boolean readed) {
@@ -63,7 +71,15 @@ public class Book extends Publication implements IVisualizable
                 }
     }
 
-    
+    public static ArrayList<Book> makeBookArrayList(){
+        
+        ArrayList<Book> books = new ArrayList();
+        for (int i = 1; i < 5; i++) {
+            books.add(new Book("book : " + i ,new Date(), "editorial " + i));
+        }
+        return books;
+        
+    }
 
 }
 
