@@ -1,5 +1,7 @@
 package amazonviewer;
 
+import java.util.ArrayList;
+
 public class Chapter extends Movie
 {
     private int id;
@@ -33,5 +35,15 @@ public class Chapter extends Movie
                 "\n Creator : " + getCreator() ; //To change body of generated methods, choose Tools | Templates.
     }
     
+    public static ArrayList<Chapter> makeChaptersList()
+    {
+        ArrayList<Chapter> chapters = new ArrayList();
+        for (int i = 1; i <= 5; i++) {
+            chapters.add(new Chapter("chapter " + i, "genre" + i, "creator"+ i, 58,(short) (2005+i), i));
+            
+        }
+        return chapters;
+
+    }
 }
     

@@ -71,11 +71,11 @@ public class Book extends Publication implements IVisualizable
                 }
     }
 
-    public static ArrayList<Book> makeBookArrayList(){
+    public static ArrayList<Book> makeBookList(){
         
         ArrayList<Book> books = new ArrayList();
         for (int i = 1; i < 5; i++) {
-            books.add(new Book("book : " + i ,new Date(), "editorial " + i));
+            books.add(new Book("Book : " + i ,new Date(), "editorial " + i));
         }
         return books;
         

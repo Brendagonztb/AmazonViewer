@@ -12,6 +12,8 @@ public class Movie extends Film implements IVisualizable
         super(title, genre, creator, duration);
         setYear(year);
     }
+    
+    
     public void showData()
     {
        // System.out.println("Title : " + this.title);
@@ -57,8 +59,9 @@ public class Movie extends Film implements IVisualizable
     
     public static ArrayList<Movie> makeMoviesList(){
         ArrayList<Movie> movies = new ArrayList();
+        
         for (int i = 1; i <= 5; i++) {
-            movies.add(new Movie("movie "+ i, "genero "+ i , "creador "+i , 120 +i ,(short) (2017 + i)));
+            movies.add(new Movie(" Movie " + i, "genero " + i , "creador " +i , 120 +i ,(short) (2017 + i)));
         }
         return movies;
         
