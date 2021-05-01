@@ -3,6 +3,8 @@ package amazonviewer;
 import java.util.*;
 
 import amazonviewer.Movie;
+import com.makereport.Report;
+import java.text.SimpleDateFormat;
 
 public class AmazonViewer
 {
@@ -60,10 +62,12 @@ public class AmazonViewer
 				
         } while (exit != 0);
     }
+    
+    static ArrayList<Movie> movies = Movie.makeMoviesList();
         public static void showMovies()
         {
         int exit = 1;
-        ArrayList<Movie> movies = Movie.makeMoviesList();
+        
             do {       
                 System.out.println("");
                 System.out.println(" Movies ");
@@ -86,7 +90,8 @@ public class AmazonViewer
                 {
                     showMenu();
                 }
-                
+                if (respuesta > 0) {
+                    
                 Movie movieSelected = movies.get(respuesta -1);
                 movieSelected.setViewed(true);
                 Date dateI = movieSelected.startToSee(new Date());
@@ -99,12 +104,11 @@ public class AmazonViewer
                 movieSelected.stopToSee(dateI, new Date());
                 System.out.println(" Viste : " + movieSelected);
                 System.out.println("\n Por : " + movieSelected.getTimeViewed() + "milisegundos");
-                        
+                }
+                
             } while (exit != 0);
             
-            
-            
-            
+         
             
         }
         public static void showSeries()
@@ -139,16 +143,12 @@ public class AmazonViewer
                 
             } while (exit != 0);
         }
+       
         
-        
-        
-        
-        
-        
-        
+        static ArrayList<Chapter> chapters = Chapter.makeChaptersList();
          public static void showChapters(ArrayList<Chapter> chaptersOffSerieSelected)
          {
-         ArrayList<Chapter> chapters = Chapter.makeChaptersList();
+         
          int exit = 0;
             do {       
                 System.out.println("");
@@ -172,7 +172,9 @@ public class AmazonViewer
                     showSeries();
                 }
                 
-                Chapter chapterSelected = chaptersOffSerieSelected.get(respuesta -1);
+                 if (respuesta > 0) {
+                     
+                      Chapter chapterSelected = chaptersOffSerieSelected.get(respuesta -1);
                 chapterSelected.setViewed(true);
                 Date dateI = chapterSelected.startToSee(new Date());
                 for (int i = 0; i < 100; i++) {
@@ -183,14 +185,12 @@ public class AmazonViewer
                 chapterSelected.stopToSee(dateI, new Date());
                 System.out.println(" Viste : " + chapterSelected);
                 System.out.println("\n Por : " + chapterSelected.getTimeViewed()+ "milisegundos");
-                
+
+                 }
                
             } while (exit != 0);
            
-            
-            
-            
-            
+          
             
          }
           public static void showBooks()
@@ -222,7 +222,9 @@ public class AmazonViewer
                     showMenu();
                 }
                 
-                Book bookSelected = books.get(respuesta -1);
+                if (respuesta > 0) {
+                    
+                     Book bookSelected = books.get(respuesta -1);
                 bookSelected.setReaded(true);
                 Date dateI = bookSelected.startToSee(new Date());
                 for (int i = 0; i < 1000; i++) {
@@ -234,6 +236,7 @@ public class AmazonViewer
                 System.out.println("Viste : " + bookSelected);
                 System.out.println("\n Por : " + bookSelected.getTimeReaded()+ "milesegundos");
               
+                } 
                 
             } while (exit != 0);
             
@@ -250,11 +253,52 @@ public class AmazonViewer
            }
           public static void makeReport()
           {
+              Report report = new Report();
+              report.setNameFile(" reporte ");
+              report.setExtension("txt");
+              report.setTitle(" Vistos ");
+              String contentReport = "";
+              
+              for (Movie movie : movies) {
+                  if (movie.getIsViewed()) {
+                      contentReport += movie.toString()+ "\n" ;
+                      
+                  }
+              }
+              
+              report.setContent(contentReport);
+              report.makeReport();
+              
+              
               
           }
-          public static void makeReport(Date date)
+
+    /**
+     *
+     * @param date
+     */
+    public static void makeReport(Date date)
           {
+              SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+              String dateString = df.format(date);
+              Report report = new Report();
+              
+              report.setNameFile(" report " + dateString);
+              
+              report.setExtension("txt");
+              report.setTitle(" Vistos ");
+              String contentReport = "";
+              
+              for (Movie movie : movies) {
+                  if (movie.getIsViewed()) {
+                      contentReport += movie.toString()+ "\n" ;
+                      
+                  }
+              }
+              
+              report.setContent(contentReport);
+              report.makeReport();
               
           }
         
-    }
+          }
